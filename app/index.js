@@ -9,52 +9,33 @@ TODO:
 
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { Link } from 'expo-router';
+import Styles from "./styles/styleSheet.js";
+import NavButton from "./conponents/navButton.js";
 
 export default function App() {
   return (
-    <View style={{}}>
+    <View style={Styles.container}>
 
-    {/* Instructions */}
-    <Text style={{}}>Soundboard</Text>
-    <Text style={{}}></Text>
+    {/* Title */}
+    <Text style={Styles.headerText}>Soundboard</Text>
     
 
-    {/* Linked Buttons */}
+    {/* Buttons */}
     <View style={{}}>
-    <Link href={{
-                pathname: "/soundboard",
-                params: {},
-            }} asChild>
-                <Pressable 
-                    onPress={() => {}}
-                    style={{}}
-                >
-                    <Text style={{}}>Easy</Text>
-                </Pressable>
-            </Link>
+        <NavButton 
+          text={"Soundboard"}
+          path={"/soundboard"}
+          style={Styles.navButton}
+          />
     </View>
 
     <View style={{}}>
-    <Link href={{
-                pathname: "",
-                params: {},
-            }} asChild>
-                <Pressable 
-                    onPress={() => {}}
-                >
-                    <Text style={{}}>Normal</Text>
-                </Pressable>
-            </Link>
+      <NavButton 
+          text={"Instructions?"}
+          path={"/index"}
+          style={Styles.navButton}
+          />
     </View>
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
