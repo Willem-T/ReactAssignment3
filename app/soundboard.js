@@ -1,7 +1,19 @@
+/*
+Created by:   Willem Toews
+Purpose:      CIT-2269 Assignment #3
+Desciption:   A soundboard app that can record and playback audio
+
+TODO:       
+      add colour to buttons when pressed
+      fix style for buttons 
+      decide on text within buttons 
+*/ 
+
 import { Text, View, Pressable } from 'react-native';
 import BackButton from './conponents/backButton';
-import Styles from "./styles/styleSheet.js";
+import Styles from "./styles/generalStyleSheet.js";
 import SoundBoardButton from './conponents/soundBoardButton.js';
+import soundBoardStyles from './styles/soundBoardStyleSheet.js';
 
 export default function App() {
 
@@ -11,9 +23,9 @@ export default function App() {
     <View style={Styles.container}>
         <BackButton text={"Go Back"}/>
 
-    <View style={Styles.soundBoardContainer}>
+    <View style={soundBoardStyles.soundBoardContainer}>
       {soundBoardArray.map((Pressable, index) => (
-      <SoundBoardButton key={index} style={Styles.soundBoardButton}/> 
+      <SoundBoardButton key={index} /> 
       ))}
     </View>
     </View>

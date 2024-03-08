@@ -3,8 +3,11 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 50,
         alignItems: 'center',
         flex: 1,
+        height: '100%',
+        width: '100%',
     },
     headerText: {
         fontSize: 40,
@@ -29,23 +32,6 @@ const styles = StyleSheet.create({
         padding: 15,
         margin: 20,
         
-    },
-    soundBoardButton: {
-        width: '30%',
-        aspectRatio: 1,
-        padding: 16,
-        borderRadius: 6, 
-        elevation: 2,
-        backgroundColor: 'blue',
-        margin: '1.5%',
-    },
-    soundBoardButtonText: {
-        color: "white", 
-    },
-    soundBoardContainer: {
-        flexDirection: 'row', 
-        flexWrap: 'wrap', 
-        justifyContent: 'center', 
     },
 });
 

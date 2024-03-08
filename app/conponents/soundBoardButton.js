@@ -1,5 +1,5 @@
 import { Pressable, View, Text } from "react-native";
-import Styles from "../styles/styleSheet.js";
+import Styles from "../styles/soundBoardStyleSheet.js";
 import { Audio } from 'expo-av';
 import { useState, useEffect } from 'react';
 
@@ -8,6 +8,7 @@ const [recording, setRecording ] = useState(null); //recording object
   const [recordingUri, setRecordingUri ] = useState(null); // recorded file location
   const [playback, setPlayback ] = useState(null); //playback object 
   const [permissionResponse, requestPermission ] = Audio.usePermissions();
+  const [playing , setPlaying] = useState(false);
 
 
   const startRecording = async () => {
@@ -58,7 +59,15 @@ const [recording, setRecording ] = useState(null); //recording object
     });
     setPlayback(sound);
     await sound.replayAsync()
+    setPlaying(true);
     console.log('Playing audion from -> ', recordingUri);
+
+    //set playing state to to false when audio stops
+    sound.setOnPlaybackStatusUpdate((status) => {
+      if(!status.isPlaying){
+        setPlaying(false);
+      }
+    });
   }
 
   //cleanup audio
@@ -69,13 +78,16 @@ const [recording, setRecording ] = useState(null); //recording object
   },[]);
 
     return (
-        <View style={style}>
-                <Pressable
-                    onPress={playRecording}
-                    onLongPress={recording ? stopRecording : startRecording}
-                    title={recording ? 'Stop Recording' : 'Start Recording'}>
-                    <Text style={Styles.soundBoardButtonText}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
-                </Pressable>
-        </View>
+      <Pressable
+        style={[
+          Styles.soundBoardButton, { backgroundColor: playing ? 'green' : recording ? 'yellow' : 'blue' }]}
+        onPress={playRecording}
+        onLongPress={recording ? stopRecording : startRecording}>
+        <Text style={Styles.soundBoardButtonText}>
+          {recordingUri
+            ? (playing ? 'Playing' : 'Play')
+            : (recording ? 'Stop Recording' : 'Start Recording')}
+        </Text>
+      </Pressable>
     );
 }
