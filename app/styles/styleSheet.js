@@ -28,16 +28,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
         padding: 15,
         margin: 20,
+        
     },
     soundBoardButton: {
-        width: '40%',
-        alignItems: 'center',
+        width: '30%',
+        aspectRatio: 1,
         padding: 16,
         borderRadius: 6, 
         elevation: 2,
         backgroundColor: 'blue',
-        padding: 15,
-        margin: 20,
+        margin: '1.5%',
+    },
+    soundBoardButtonText: {
+        color: "white", 
+    },
+    soundBoardContainer: {
+        flexDirection: 'row', 
+        flexWrap: 'wrap', 
+        justifyContent: 'center', 
     },
 });
 
