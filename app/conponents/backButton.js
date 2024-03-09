@@ -9,7 +9,7 @@ export default BackButton = ({text}) => {
             style={Styles.backButton}
             onPress={() => navigate.goBack()}
         >
-            <Text>{text}</Text>
+            <Text style={Styles.backButtonText}>{text}</Text>
         </Pressable>
     );
 }

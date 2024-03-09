@@ -9,7 +9,7 @@ export default NavButton = ({ text, style, path }) => {
                     style={style}
                     onPress={() => { }}
                 >
-                    <Text>{text}</Text>
+                    <Text style={Styles.navButtonText}>{text}</Text>
                 </Pressable>
             </Link>
     );

@@ -7,35 +7,37 @@ TODO:
       
 */ 
 
-import { StyleSheet, Text, View, Pressable } from 'react-native';
-import { Link } from 'expo-router';
-import Styles from "./styles/generalStyleSheet.js";
+// Components
+import {Text, View} from 'react-native';
 import NavButton from "./conponents/navButton.js";
+
+// Styles
+import Styles from "./styles/generalStyleSheet.js";
+
+
 
 export default function App() {
   return (
     <View style={Styles.container}>
 
-    {/* Title */}
-    <Text style={Styles.headerText}>Soundboard</Text>
-    
+      {/* Title */}
+      <Text style={Styles.headerText}>Soundboard</Text>
 
-    {/* Buttons */}
-    <View style={{}}>
-        <NavButton 
+
+      {/* Buttons */}
+      <View style={Styles.navButtonContainer}>
+        <NavButton
           text={"Soundboard"}
           path={"/soundboard"}
           style={Styles.navButton}
-          />
-    </View>
+        />
 
-    <View style={{}}>
-      <NavButton 
+        <NavButton
           text={"Instructions?"}
           path={"/index"}
           style={Styles.navButton}
-          />
-    </View>
+        />
+      </View>
     </View>
   );
 };

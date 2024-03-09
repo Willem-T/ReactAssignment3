@@ -9,11 +9,16 @@ TODO:
       decide on text within buttons 
 */ 
 
-import { Text, View, Pressable } from 'react-native';
+// Components
+import { View,} from 'react-native';
 import BackButton from './conponents/backButton';
-import Styles from "./styles/generalStyleSheet.js";
 import SoundBoardButton from './conponents/soundBoardButton.js';
+
+// Styles
 import soundBoardStyles from './styles/soundBoardStyleSheet.js';
+import Styles from "./styles/generalStyleSheet.js";
+
+
 
 export default function App() {
 

@@ -77,15 +77,35 @@ const [recording, setRecording ] = useState(null); //recording object
     : undefined;
   },[]);
 
+  const stopPlayback = async () =>{
+    playback.stopAsync();
+    setPlayback(undefined);
+    setPlaying(false);
+  }
+
+  function dynamicBackgroundColor(playing, recordingUri, recording){
+    if(playing){
+      return 'black';
+    }
+    else if(recording){
+      return 'yellow';
+    }
+    else if(recordingUri){
+      return 'green';
+    }
+    else{
+      return 'blue';
+    }
+  }
+
     return (
       <Pressable
-        style={[
-          Styles.soundBoardButton, { backgroundColor: playing ? 'green' : recording ? 'yellow' : 'blue' }]}
-        onPress={playRecording}
+        style={[Styles.soundBoardButton, { backgroundColor: dynamicBackgroundColor(playing, recordingUri, recording)}]}
+        onPress={playing ? stopPlayback : playRecording}
         onLongPress={recording ? stopRecording : startRecording}>
         <Text style={Styles.soundBoardButtonText}>
           {recordingUri
-            ? (playing ? 'Playing' : 'Play')
+            ? (playing ? 'Stop' : 'Play')
             : (recording ? 'Stop Recording' : 'Start Recording')}
         </Text>
       </Pressable>

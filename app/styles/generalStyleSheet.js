@@ -22,16 +22,30 @@ const styles = StyleSheet.create({
         elevation: 2,
         backgroundColor: 'red',
     },
+    backButtonText: {
+        fontSize: 20,
+        color: 'white',
+    },
+    navButtonContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
     navButton: {
         width: '40%',
+        height: '22%',
         alignItems: 'center',
+        keepAspectRatio: 1,
         padding: 16,
         borderRadius: 6, 
         elevation: 2,
         backgroundColor: 'blue',
         padding: 15,
         margin: 20,
-        
+        justifyContent: 'center',
+    },
+    navButtonText: {
+        fontSize: 20,
+        color: 'white',
     },
 });
 
