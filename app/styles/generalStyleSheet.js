@@ -47,6 +47,19 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
     },
+    allowStoppingButton: {
+        width: '45%',
+        marginTop: 50,
+        alignItems: 'center',
+        padding: 16,
+        borderRadius: 6, 
+        elevation: 2,
+        backgroundColor: 'yellow',
+    },
+    allowStoppingButtonText: {
+        fontSize: 20,
+        color: 'black',
+    },
 });
 
 export default styles;

@@ -19,7 +19,7 @@ const soundBoardStyles = StyleSheet.create({
         fontSize: 20,
     },
     soundBoardContainer: {
-        marginTop: '30%',
+        marginTop: '20%',
         flexDirection: 'row', 
         flexWrap: 'wrap', 
         justifyContent: 'center', 

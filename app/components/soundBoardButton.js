@@ -3,11 +3,9 @@ import Styles from "../styles/soundBoardStyleSheet.js";
 import { Audio } from 'expo-av';
 import { useState, useEffect } from 'react';
 import soundBoardStyles from "../styles/soundBoardStyleSheet.js";
-import { Recording } from "expo-av/build/Audio.js";
 import { Asset } from 'expo-asset';
-import { fetchPreMadeSounds, initDatabase } from "../SQLite.js";
 
-export default soundBoardButton = () => {
+export default soundBoardButton = ({allowStopPlaying}) => {
 
   const [recording, setRecording ] = useState(null); //recording object
   const [recordingUri, setRecordingUri ] = useState(null); // recorded file location
@@ -18,7 +16,6 @@ export default soundBoardButton = () => {
 
     // Array of pre-made sounds
     // should eventually be replaced with a database call
-    // really bad workaround fix this later
     const preMadeSounds = [
       { name: "Bonk", uri: Asset.fromModule(require("../sounds/bonk.mp3")).uri },
       { name: "Death", uri: Asset.fromModule(require("../sounds/death.mp3")).uri },
@@ -109,7 +106,7 @@ export default soundBoardButton = () => {
   }
 
   function dynamicBackgroundColor(playing, recordingUri, recording){
-    if(playing){
+    if(playing && allowStopPlaying === true){
       return 'black';
     }
     else if(recording){
@@ -120,6 +117,21 @@ export default soundBoardButton = () => {
     }
     else{
       return 'blue';
+    }
+  }
+
+  function dynamicButtonText(playing, recordingUri, recording){
+    if(playing && allowStopPlaying === true){
+      return 'Stop';
+    }
+    else if(recording){
+      return 'Stop Recording';
+    }
+    else if(recordingUri){
+      return 'Play';
+    }
+    else{
+      return 'Hold To Select Sound';
     }
   }
 
@@ -170,12 +182,16 @@ export default soundBoardButton = () => {
           
           <Pressable
             style={[Styles.soundBoardButton, { backgroundColor: dynamicBackgroundColor(playing, recordingUri, recording)}]}
-            onPress={playing ? stopPlayback : playRecording}
+            onPress={() => {
+              //console.log(allowStopPlaying);
+              if (playing && allowStopPlaying === true) {
+                stopPlayback();
+              } else if (recordingUri) {
+                playRecording();
+            }}}
             onLongPress={() => setModalVisible(true)}>
             <Text style={Styles.soundBoardButtonText}>
-              {recordingUri
-                ? (playing ? 'Stop' : 'Play')
-                : "Select Sound"}
+              {dynamicButtonText(playing, recordingUri, recording)}
             </Text>
           </Pressable>
           </>
