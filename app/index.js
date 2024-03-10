@@ -8,7 +8,7 @@ TODO:
 */ 
 
 // Components
-import { StatusBar, View, Animated} from 'react-native';
+import { StatusBar, View, Text} from 'react-native';
 import NavButton from "./components/navButton.js";
 import { useEffect } from 'react';
 
@@ -26,7 +26,7 @@ export default function App() {
     <View style={Styles.container}>
 
       {/* Title */}
-      <Animated.Text style={[Styles.headerText]}>Soundboard</Animated.Text>
+      <Text style={[Styles.headerText]}>Soundboard</Text>
 
 
       {/* Buttons */}
@@ -37,11 +37,11 @@ export default function App() {
           style={Styles.navButton}
         />
 
-        <NavButton
+        {/* <NavButton
           text={"Instructions?"}
           path={"/index"}
           style={Styles.navButton}
-        />
+        /> */}
       </View>
     </View>
   );

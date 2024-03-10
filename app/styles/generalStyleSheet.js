@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     navButton: {
         width: '40%',
-        height: '22%',
+        height: '28%',
         alignItems: 'center',
         keepAspectRatio: 1,
         padding: 16,
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFC300',
         padding: 15,
         margin: 20,
+        marginTop: '30%',
         justifyContent: 'center',
     },
     navButtonText: {
