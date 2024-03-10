@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 
 const soundBoardStyles = StyleSheet.create({
+    // Soundboard styles
     soundBoardButton: {
         width: '30%',
         height: '30%',
@@ -14,7 +15,7 @@ const soundBoardStyles = StyleSheet.create({
         alignItems: 'center',
     },
     soundBoardButtonText: {
-        color: "white", 
+        color: "black", 
         textAlign: 'center',
         fontSize: 20,
     },
@@ -24,9 +25,18 @@ const soundBoardStyles = StyleSheet.create({
         flexWrap: 'wrap', 
         justifyContent: 'center', 
     },
+    soundBoardButtonpermanentText: {
+        color: "black", 
+        textAlign: 'center',
+        fontSize: 12,
+        position: 'absolute',
+        bottom: 0,
+    },
+
+    // Modal styles
     modalContainer: {
         flex: 1,
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        backgroundColor: 'rgba(88, 24, 69, 0.7)',
         borderColor: 'black',
         borderWidth: 2,
         borderRadius: 20,
@@ -36,7 +46,7 @@ const soundBoardStyles = StyleSheet.create({
         marginBottom: '40%',
     },
     modalExitButton: {
-        backgroundColor: 'red',
+        backgroundColor: '#C70039',
         width: '30%',
         height: '10%',
         borderRadius: 20,
@@ -47,7 +57,7 @@ const soundBoardStyles = StyleSheet.create({
         marginLeft: '35%',
     },
     modalRecordButton: {
-        backgroundColor: 'blue',
+        backgroundColor: '#FFC300',
         width: '30%',
         height: '20%',
         borderRadius: 20,
@@ -58,7 +68,7 @@ const soundBoardStyles = StyleSheet.create({
         marginLeft: '35%',
     },
     modalButton: {
-        backgroundColor: 'blue',
+        backgroundColor: '#FFC300',
         width: '30%',
         height: '20%',
         aspectRatio: 3 / 2, 
@@ -74,6 +84,11 @@ const soundBoardStyles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center', 
         marginTop: '5%', 
+    },
+    modalExitButtonText: {
+        color: "white", 
+        textAlign: 'center',
+        fontSize: 20,
     },
 });
 

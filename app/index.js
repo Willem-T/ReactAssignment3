@@ -8,20 +8,25 @@ TODO:
 */ 
 
 // Components
-import {Text, View} from 'react-native';
-import NavButton from "./conponents/navButton.js";
+import { StatusBar, View, Animated} from 'react-native';
+import NavButton from "./components/navButton.js";
+import { useEffect } from 'react';
 
 // Styles
 import Styles from "./styles/generalStyleSheet.js";
 
-
-
 export default function App() {
+  useEffect(() => {
+    StatusBar.setBarStyle('light-content');
+    StatusBar.setBackgroundColor('#191919');
+  }, []); 
+
+
   return (
     <View style={Styles.container}>
 
       {/* Title */}
-      <Text style={Styles.headerText}>Soundboard</Text>
+      <Animated.Text style={[Styles.headerText]}>Soundboard</Animated.Text>
 
 
       {/* Buttons */}

@@ -4,9 +4,7 @@ Purpose:      CIT-2269 Assignment #3
 Desciption:   A soundboard app that can record and playback audio
 
 TODO:       
-      add colour to buttons when pressed
-      fix style for buttons 
-      decide on text within buttons 
+        Database kinda works, but not really, but mostly works so i should fix that
 */ 
 
 // Components
@@ -35,7 +33,6 @@ export default function App() {
         <BackButton text={"Go Back"}/>
 
         <AllowStoppingButton onPress={handlePress} />
-
     <View style={soundBoardStyles.soundBoardContainer}>
       {soundBoardArray.map((Pressable, index) => (
       <SoundBoardButton key={index} allowStopPlaying={allowStopPlaying}/> 
