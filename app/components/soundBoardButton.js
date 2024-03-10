@@ -6,6 +6,7 @@
  * 
  * Todo:
  *      - should disable other buttons when recording
+ *      - colours dont stay when playing multiple times in a row
  */
 import { Pressable, Text, Modal, View } from "react-native";
 import Styles from "../styles/soundBoardStyleSheet.js";
@@ -142,7 +143,12 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
       return '#DAF7A6';
     }
     else if (recordingUri) {
-      return '#FF5733';
+      if(playing){
+        return '#DAF7A6';
+      }
+      else{
+        return '#FF5733';
+      }
     }
     else {
       return '#FFC300';
@@ -158,7 +164,12 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
       return 'Stop Recording';
     }
     else if (recordingUri) {
-      return 'Play';
+      if(playing){
+        return 'Playing';
+      }
+      else{
+        return 'Play';
+      }
     }
     else {
       return 'Select Sound';

@@ -4,7 +4,7 @@ Purpose:      CIT-2269 Assignment #3
 Desciption:   A soundboard app that can record and playback audio
 
 TODO:       
-      
+      make better use of the home page
 */ 
 
 // Components
