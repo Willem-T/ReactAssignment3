@@ -34,6 +34,7 @@ export default function App() {
 
         <AllowStoppingButton onPress={handlePress} />
     <View style={soundBoardStyles.soundBoardContainer}>
+
       {soundBoardArray.map((Pressable, index) => (
       <SoundBoardButton key={index} allowStopPlaying={allowStopPlaying}/> 
       ))}

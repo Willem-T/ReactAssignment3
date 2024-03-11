@@ -54,6 +54,13 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
     });
   }, [recordingUri]);
 
+  //workaround for not moving the database calls to soundboard.js
+  updateSavedButtons = () => {
+    fetchSavedSounds((sounds) => {
+      setSavedSounds(sounds);
+    });
+  };
+
   const startRecording = async () => {
     try {
       //check permissions
@@ -281,7 +288,10 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
             playRecording();
           }
         }}
-        onLongPress={() => setModalVisible(true)}>
+        onLongPress={() => {
+          setModalVisible(true);
+          updateSavedButtons();
+        }}>
         <Text style={Styles.soundBoardButtonText}>
           {dynamicButtonText(playing, recordingUri, recording)}
         </Text>
