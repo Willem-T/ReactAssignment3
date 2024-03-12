@@ -97,6 +97,7 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
       setRecording(undefined);
 
       console.log('Recording stopped and stored at -> ', uri);
+      return uri; //this needs to be in the try for some reason
     }
     catch (error) {
       console.log("Error during stopRecording() -> ", error)
@@ -231,6 +232,7 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
                 key={index}
                 style={[Styles.modalButton, { backgroundColor: modelSpecificRecorder[index] ? '#DAF7A6' : '#FFC300' }]}
                 onPress={() => {
+                  updateSavedButtons();
                   console.log('Selected sound -> ', sound.uri);
                   setRecordingUri(sound.uri);
                 }}
@@ -239,17 +241,18 @@ export default soundBoardButton = ({ allowStopPlaying }) => {
                     const updatedRecorder = [...modelSpecificRecorder];
                     updatedRecorder[index] = false;
                     setModelSpecificRecorder(updatedRecorder);
-                    await stopRecording();
+                    let uri = await stopRecording();
                     //console.log(recordingUri);
-                    //console.log(sound.uri);
+                    //console.log(uri);
 
-                    await updateSavedSound(sound.id, "Savable slot: " + sound.id, recordingUri);
+                    await updateSavedSound(sound.id, "Savable slot: " + sound.id, uri);
                   } else {
                     const updatedRecorder = [...modelSpecificRecorder];
                     updatedRecorder[index] = true;
                     setModelSpecificRecorder(updatedRecorder);
                     startRecording();
                   }
+                  updateSavedButtons(); //fetch the new sounds
                 }}
               >
                 <Text style={Styles.soundBoardButtonText}>

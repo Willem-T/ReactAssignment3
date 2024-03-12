@@ -4,7 +4,7 @@ Purpose:      CIT-2269 Assignment #3
 Desciption:   A soundboard app that can record and playback audio
 
 TODO:       
-        Database kinda works, but not really, but mostly works so i should fix that
+
 */ 
 
 // Components

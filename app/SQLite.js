@@ -43,8 +43,8 @@ export const fetchSavedSounds = (callback) => {
 };
 
 // Function to update a sound 
-export const updateSavedSound = (id, name, uri) => {
-  console.log( "database sounds input => " + id, name, uri)
+export const updateSavedSound = async (id, name, uri) => {
+  console.log( "database sounds input -> " + name, uri)
 
   db.transaction(tx => {
     tx.executeSql(
